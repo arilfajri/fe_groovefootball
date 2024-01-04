@@ -10,7 +10,7 @@ function Dribbling() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://be-groovefootball.vercel.app/${1}`
+          `https://be-groovefootball.vercel.app/alldata/${1}`
         );
         setDetail(response.data);
       } catch (error) {

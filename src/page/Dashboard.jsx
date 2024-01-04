@@ -28,6 +28,7 @@ function Dashboard() {
       }
     }
   };
+  console.log(token);
 
   const axiosJWT = axios.create();
   axiosJWT.interceptors.request.use(
