@@ -37,7 +37,7 @@ function Login() {
           icon: "success",
           title: "Login successfully",
         });
-        navigate("/dashboard");
+        // navigate("/dashboard");
       } catch (error) {
         if (error.response) {
           Swal.fire({
