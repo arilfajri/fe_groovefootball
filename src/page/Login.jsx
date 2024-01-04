@@ -18,10 +18,16 @@ function Login() {
     }),
     onSubmit: async (values) => {
       try {
-        await axios.post("https://be-groovefootball.vercel.app/login", {
-          email: values.email,
-          password: values.password,
-        });
+        await axios.post(
+          "https://be-groovefootball.vercel.app/login",
+          {
+            email: values.email,
+            password: values.password,
+          },
+          {
+            withCredentials: true,
+          }
+        );
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
