@@ -21,7 +21,8 @@ function Dashboard() {
       );
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
-      setExpire(decoded.exp);
+      console.log(decoded);
+      setExpire("decode", decoded.exp);
     } catch (error) {
       if (error.response) {
         navigate("/");
