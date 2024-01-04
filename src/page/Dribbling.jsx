@@ -9,7 +9,9 @@ function Dribbling() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/alldata/${1}`);
+        const response = await axios.get(
+          `https://be-groovefootball.vercel.app/${1}`
+        );
         setDetail(response.data);
       } catch (error) {
         console.error(error);

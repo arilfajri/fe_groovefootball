@@ -10,7 +10,9 @@ function Passing() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/alldata/${3}`);
+        const response = await axios.get(
+          `https://be-groovefootball.vercel.app/alldata/${3}`
+        );
         setDetail(response.data);
       } catch (error) {
         console.error(error);

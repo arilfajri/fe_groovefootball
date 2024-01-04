@@ -23,7 +23,9 @@ function Edit() {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/token");
+      const response = await axios.get(
+        "https://be-groovefootball.vercel.app/token"
+      );
       setToken(response.data.accessToken);
       const decoded = jwtDecode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -39,7 +41,9 @@ function Edit() {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("http://localhost:5000/token");
+        const response = await axios.get(
+          "https://be-groovefootball.vercel.app/token"
+        );
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwtDecode(response.data.accessToken);
@@ -101,7 +105,7 @@ function Edit() {
 
         // Lakukan pembaruan di dalam onSubmit
         await axios.patch(
-          `http://localhost:5000/alldata/${values.id}`,
+          `https://be-groovefootball.vercel.app/alldata/${values.id}`,
           formData,
           {
             headers: {

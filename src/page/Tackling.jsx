@@ -10,7 +10,9 @@ function Tackling() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/alldata/${2}`);
+        const response = await axios.get(
+          `https://be-groovefootball.vercel.app/alldata/${2}`
+        );
         setDetail(response.data);
       } catch (error) {
         console.error(error);
