@@ -37,10 +37,7 @@ function Login() {
           icon: "success",
           title: "Login successfully",
         });
-        const response = await axios.get(
-          "https://be-groovefootball.vercel.app/token"
-        );
-        console.log(response.data.accessToken);
+
         // navigate("/dashboard");
       } catch (error) {
         if (error.response) {
