@@ -18,15 +18,12 @@ function Login() {
     }),
     onSubmit: async (values) => {
       try {
-        await axios.post(
-          "https://be-groovefootball.vercel.app/login",
-          {
-            email: values.email,
-            password: values.password,
-          },
-          {
-            withCredentials: true,
-          }
+        await axios.post("https://be-groovefootball.vercel.app/login", {
+          email: values.email,
+          password: values.password,
+        });
+        const response = await axios.get(
+          "https://be-groovefootball.vercel.app/token"
         );
         const Toast = Swal.mixin({
           toast: true,
@@ -43,8 +40,9 @@ function Login() {
           icon: "success",
           title: "Login successfully",
         });
-
-        // navigate("/dashboard");
+        const accessToken = response.data.accessToken;
+        localStorage.setItem("accessToken", accessToken);
+        navigate("/dashboard");
       } catch (error) {
         if (error.response) {
           Swal.fire({
