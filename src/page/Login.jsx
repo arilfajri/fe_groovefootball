@@ -22,9 +22,6 @@ function Login() {
           email: values.email,
           password: values.password,
         });
-        const response = await axios.get(
-          "https://be-groovefootball.vercel.app/token"
-        );
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
@@ -40,8 +37,6 @@ function Login() {
           icon: "success",
           title: "Login successfully",
         });
-        const accessToken = response.data.accessToken;
-        localStorage.setItem("accessToken", accessToken);
         navigate("/dashboard");
       } catch (error) {
         if (error.response) {
